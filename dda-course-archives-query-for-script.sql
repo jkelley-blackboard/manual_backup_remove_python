@@ -1,4 +1,4 @@
-====================================================
+/*
 DDA Query to pull Course Backup Cleanup List
 Built on top of Heather Crites query
 (https://github.com/hcrites-cscc)
@@ -19,17 +19,17 @@ If you have any questions feel free to contact me.
 terry.patterson@austincc.edu
 
 Run this against the *_cms_doc database/schema
-=====================================================
+*/
 
 SELECT 
   xyf_urls.full_path as fullPath,
   'Y' as deleteMe,
   to_char(xyf_files.creation_date,'mm/dd/yyyy') as created,
-  split_part(xyf_urls.file_name,'_', '2') as courseId,           -- this might not catch the full ID if there is an underscore in it
+  split_part(xyf_urls.full_path,'/', '4') as courseId,
   xyf_files.file_size as size
 
 FROM xyf_files
-  INNER JOIN join xyf_urls on xyf_urls.file_id = xyf_files.file_id
+  INNER JOIN xyf_urls on xyf_urls.file_id = xyf_files.file_id
 
 WHERE (
   xyf_urls.full_path like '/internal/courses/%/archive/%' 
