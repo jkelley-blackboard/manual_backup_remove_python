@@ -22,11 +22,11 @@ Run this against the *_cms_doc database/schema
 */
 
 SELECT 
-  xyf_urls.full_path as fullPath,
-  'Y' as deleteMe,
-  to_char(xyf_files.creation_date,'mm/dd/yyyy') as created,
-  split_part(xyf_urls.full_path,'/', '4') as courseId,
-  xyf_files.file_size as size
+  xyf_urls.full_path as "fullPath",
+  'Y' as "deleteMe",
+  to_char(xyf_files.creation_date,'mm/dd/yyyy') as "created",
+  split_part(xyf_urls.full_path,'/', '4') as "courseId",
+  xyf_files.file_size as "size"
 
 FROM xyf_files
   INNER JOIN xyf_urls on xyf_urls.file_id = xyf_files.file_id
