@@ -1,7 +1,7 @@
 # manual_backup_remove_python
 
 Jeff Kelley - jeff.kelley@blackboard.com
-Provided without support or warranty.
+Provided without explicit or implied support or warranty from me or Blackboard.
 
 This is an unofficial project to provide method(s) to identify and remove manual course backups - i.e. user created course/org archives, exports and IMS Common Cartridge exports from Blackboard Learn.
 
